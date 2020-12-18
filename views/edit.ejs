@@ -1,0 +1,48 @@
+<%- include("partials/header") %>
+<div class="container" style="margin-top: 30px;">
+        <h1 class="display-1    ">Update <span style="text-decoration: underline"><%=user.name%></span></h1>
+        <div class="row">
+                <div style="width:70%; margin: 25px auto">
+                        <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+                                <label>Name</label>
+                                <div class="form-group">
+                                        <input class="form-control" type="text" name="user[name]"
+                                                value="<%=user.name%>">
+                                </div>
+                                <label>Age</label>
+                                <div class="form-group">
+                                        <input class="form-control" type="number" name="user[age]"
+                                                value="<%=user.age%>">
+
+                                </div>
+                                <label>E-Mail Address</label>
+                                <div class="form-group">
+                                        <input class="form-control" type="email" name="user[email]"
+                                                value="<%=user.email%>">
+                                </div>
+                                <label>City</label>
+                                <div class="form-group">
+                                        <input class="form-control" type="text" name="user[city]"
+                                                value="<%=user.city%>">
+                                </div>
+                                <label>Address</label>
+                                <div class="form-group">
+                                        <input class="form-control" type="text" name="user[address]"
+                                                value="<%=user.address%>">
+                                </div>
+                                <label>Image URL</label>
+                                <div class="form-group">
+                                        <input class="form-control" type="text" name="user[image]"
+                                                value="<%=user.image%>">
+                                </div>
+                                <label>About</label>
+                                <div class="form-group">
+                                        <textarea class="form-control" name="user[bio]" id="" cols="30"
+                                                rows="10"><%=user.bio%></textarea>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                        </form>
+                </div>
+        </div>
+</div>
+<%- include("partials/footer") %>

@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+<div class="container" style="margin-top: 30px;">
+    <div class="row">
+        <div class="col-12 col-lg-6 my-auto">
+            <h1><%= user.name %></h1>
+            <p>Age: <%= user.age %> <br>
+                E-Mail Address: <%= user.email %> <br>
+                Address: <%= user.address %> <br>
+                City: <%= user.city %> <br>
+            </p>
+            <p>About: <br> <%= user.bio %></p>
+        </div>
+        <div class="col-12 col-lg-6 my-auto">
+            <img class="img-fluid" src="<%=user.image%>" alt="">
+        </div>
+    </div>
+    <form style="display: inline;" action="/users/<%=user._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-lg btn-danger">Delete User</button>
+    </form>
+    <a style="display: inline;" href="/users/<%=user._id%>/edit"><button class="btn btn-lg btn-primary">Edit User</button></a>
+
+</div>
+<%- include("partials/footer") %>

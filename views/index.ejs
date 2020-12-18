@@ -1,0 +1,50 @@
+<%- include("partials/header") %>
+
+<section class="landing">
+    <div class="container">
+        <div class="headline"style="margin: 81px 0;">
+            <h1  class="display-1">USER MANAGEMENT SYSTEM</h1>
+        </div>
+        
+        <div style="margin: 30px;">
+        
+        <table class="table table-striped" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th style="width: 3%;" scope="col">S.No</th>
+                    <th style="width: 10%;" scope="col">Name</th>
+                    <th style="width: 4%;" scope="col">Age</th>
+                    <th style="width: 10%;" scope="col">E-Mail</th>
+                    <th scope="col">City</th>
+                    <th style="width: 13%;" scope="col">Address</th>
+                    <th style="width: 30%;" scope="col">About</th>
+                    <th scope="col">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <% for(var i=0;i<user.length;i++) { %>
+            
+                <tr>
+                    <th scope="row"><%=i+1%></th>
+                    <td><%= user[i].name %></td>
+                    <td><%= user[i].age %></td>
+                    <td><%= user[i].email %></td>
+                    <td><%= user[i].city %></td>
+                    <td><%= user[i].address %></td>
+                    <td><%= user[i].bio.substring(0,200) %>...<a href="/users/<%= user[i]._id %>">Show More</a></td>
+                    <td>
+                        <a href="/users/<%=user[i]._id%>/edit"><button class="btn btn-sm btn-block" style="text-align: center;">Edit</button></a>
+                        <form style="margin-top: 10px; text-align: center;" action="/users/<%=user[i]._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-sm btn-block">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+                </tbody>
+                </table>
+                </div>
+    </div>
+</section>
+
+        <%- include("partials/footer") %>
